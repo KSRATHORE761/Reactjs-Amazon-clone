@@ -1,0 +1,6 @@
+{
+    "files.autoSave": "onFocusChange",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    }
+}
