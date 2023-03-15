@@ -11,6 +11,8 @@ import Payment from './component/payment/Payment';
 import {loadStripe} from '@stripe/stripe-js';
 import {Elements} from '@stripe/react-stripe-js';
 import Orders from "./component/orders/Orders";
+import Footer from "./component/footer/Footer";
+
 
 const promise = loadStripe("pk_test_51MkWNwSHpDwxdEfD12X3bLmY8tqulwsLf4pB3zsqKk5N2wcdogqb9f92wEmipYWyn5nxe8u4sAmkeoMoajJzAzO700Z1AYPTwF");
 
@@ -52,6 +54,7 @@ function App() {
                 {/* Home */}
                 <Header></Header>
                 <Home></Home>
+                <Footer></Footer>
               </React.Fragment>
             }
           />
@@ -69,6 +72,7 @@ function App() {
             <React.Fragment>
               <Header></Header>
               <Checkout></Checkout>
+              <Footer></Footer>
             </React.Fragment>
           }
           />
@@ -80,6 +84,7 @@ function App() {
               <Elements stripe={promise}>
               <Payment></Payment>
               </Elements>
+              <Footer></Footer>
             </React.Fragment>
           }
           />
@@ -89,6 +94,7 @@ function App() {
             <React.Fragment>
               <Header></Header>
               <Orders></Orders>
+              <Footer></Footer>
             </React.Fragment>
           }
           />

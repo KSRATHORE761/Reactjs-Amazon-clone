@@ -1,60 +1,87 @@
-import React from "react";
+import React,{useState,useEffect,useCallback,useRef} from "react";
 import "./Home.css";
-import BackgroundImage from "../assets/img/backgroundcover1.jpg";
 import Product from "./Product";
-//import LeanStartUpImg from "../assets/img/product/LeanStartUp.png";
+import { motion } from "framer-motion"
+import { TopRowProducts } from "../dataaccesslayer/ProductData";
+import { MiddleRowProducts } from "../dataaccesslayer/ProductData";
+import {slideImages as BackGroundImages} from "../dataaccesslayer/slideImages";
+
 
 function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const timerRef = useRef(null);
+  
+  const goToNext = useCallback(() =>{
+    const isLastSlide = currentIndex === BackGroundImages.length-1;
+    const newSlide = isLastSlide ? 0 : currentIndex+1;
+    setCurrentIndex(newSlide);
+  },[currentIndex, BackGroundImages]);
+  
+  const goToPrevious = (e) =>{
+    e.preventDefault();
+    const isFirstSlide = currentIndex === 0;
+    const newSlide = isFirstSlide ? BackGroundImages.length-1 : currentIndex-1;
+    setCurrentIndex(newSlide);
+  }
+  useEffect(() => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+    }
+    timerRef.current = setTimeout(() => {
+      goToNext();
+    }, 5000);
+
+    return () => clearTimeout(timerRef.current);
+  }, [goToNext]);
+ 
   return (
     <div className="home">
       <div className="home__container">
-        <img className="home__image" src={BackgroundImage} alt="" />
-
+        <img className="home__image" src={BackGroundImages[currentIndex].ImgUrl} alt="" />
+        {/* <div>
+        <div className="home__leftArrowStyles" onClick={goToPrevious}>
+        <span className="home__SlideArrow">&#8249;</span>
+        </div>
+        <div className="home__rightArrowStyles" onClick={goToNext}>
+        <span className="home__SlideArrow">&#8250;</span>
+        </div>
+      </div> */}
         <div className="home__row">
-        <Product
-            id="12321341"
-            title="The Lean Startup: How Constant Innovation Creates Radically Successful Businesses Paperback"
-            price={11.96}
-            rating={5}
-            image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._SX325_BO1,204,203,200_.jpg"
-          />
-          <Product
-            id="49538094"
-            title="Kenwood kMix Stand Mixer for Baking, Stylish Kitchen Mixer with K-beater, Dough Hook and Whisk, 5 Litre Glass Bowl"
-            price={239.0}
-            rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/81O%2BGNdkzKL._AC_SX450_.jpg"
-          />
+        
+          {TopRowProducts.map((items)=>(
+            <motion.div className="home__motionrow" whileHover={{scale : 1.05 }}>
+            <Product
+            id={items.id}
+            title={items.title}
+            price={items.price}
+            rating={items.rating}
+            image={items.image}
+            >
+            </Product>
+            </motion.div>
+          ))}
           {/* Product */}
           {/* Product */}
         </div>
-        <div className="home__row">
-        <Product
-            id="4903850"
-            title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor"
-            price={199.99}
-            rating={3}
-            image="https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SX466_.jpg"
-          />
-          <Product
-            id="23445930"
-            title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
-            price={98.99}
-            rating={5}
-            image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$"
-          />
-          <Product
-            id="3254354345"
-            title="New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)"
-            price={598.99}
-            rating={4}
-            image="https://images-na.ssl-images-amazon.com/images/I/816ctt5WV5L._AC_SX385_.jpg"
-          />
+        <div className="home__middlerow">
+          {MiddleRowProducts.map((items) => (
+            <motion.div className="home__motionmiddlerow" whileHover={{scale : 1.05 }}>
+            <Product
+            id={items.id}
+            title={items.title}
+            price={items.price}
+            rating={items.rating}
+            image={items.image}
+            >
+            </Product>
+            </motion.div>
+          ))}
           {/* Product */}
           {/* Product */}
           {/* Product */}
         </div>
-        <div className="home__row">
+        <motion.div className="home__motionrow" whileHover={{scale : 1.02 }}>
+        
         <Product
             id="90829332"
             title="Samsung LC49RG90SSUXEN 49' Curved LED Gaming Monitor - Super Ultra Wide Dual WQHD 5120 x 1440"
@@ -62,8 +89,9 @@ function Home() {
             rating={4}
             image="https://images-na.ssl-images-amazon.com/images/I/6125mFrzr6L._AC_SX355_.jpg"
           />
+          </motion.div>
           {/* Product */}
-        </div>
+        
       </div>
     </div>
   );
