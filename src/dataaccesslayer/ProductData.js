@@ -3,6 +3,13 @@ import KentWoodMixutre from "../assets/img/product/KentWoodMixture.jpg";
 import FitBitWatch from "../assets/img/product/FitBitWatch.jpg";
 import AmazonEchoSpeaker from "../assets/img/product/AmazonEchoSpeaker.jpg";
 import Ipad from "../assets/img/product/Tablet.jpg";
+import AppleIphone from "../assets/img/product/Iphone14.jpg";
+import Sofa from "../assets/img/product/Sofa.jpg";
+import CrackingInterview from "../assets/img/product/InterviewBook.jpg";
+import ProtienPowder from "../assets/img/product/OnProtienPowder.jpg";
+import Macbook from "../assets/img/product/Macbook.jpg";
+import JblHeadPhone from "../assets/img/product/JblHeadphone.jpg";
+
 
 export const TopRowProducts=[
     {
@@ -45,67 +52,47 @@ export const MiddleRowProducts = [
         image:Ipad
     },
     {
-        id:"4903850",
-        title:"PTron Force X12N 1.85 Full Touch HD Display Bluetooth Calling Smartwatch",
-        price:199.99,
-        rating:3,
-        image:FitBitWatch
-    },
-    {
-        id:"23445930",
-        title:"Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
-        price:98.99,
+        id:"4903851",
+        title:"Apple 2022 MacBook Pro Laptop with M2 chip: 33.74 cm (13.3-inch) Retina Display, 8GB RAM, 512GB SSD ​​​​​​​Storage, Touch Bar, Backlit Keyboard, FaceTime HD Camera; Silver",
+        price:149.99,
         rating:5,
-        image:AmazonEchoSpeaker
+        image:Macbook
     },
     {
-        id:"3254354345",
-        title:"New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)",
-        price:598.99,
-        rating:4,
-        image:Ipad
-    },
-    {
-        id:"4903850",
-        title:"PTron Force X12N 1.85 Full Touch HD Display Bluetooth Calling Smartwatch",
-        price:199.99,
-        rating:3,
-        image:FitBitWatch
-    },
-    {
-        id:"23445930",
-        title:"Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
-        price:98.99,
+        id:"23445931",
+        title:"Apple iPhone 14 Pro Max (128 GB) - Deep Purple",
+        price:89.99,
         rating:5,
-        image:AmazonEchoSpeaker
+        image:AppleIphone
     },
     {
-        id:"3254354345",
-        title:"New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)",
-        price:598.99,
+        id:"3254354341",
+        title:"JBL Tune 760NC, Wireless Over Ear Active Noise Cancellation Headphones with Mic, up to 50 Hours Playtime, Pure Bass, Dual Pairing, AUX & Voice Assistant Support for Mobile Phones (Black)",
+        price:298.99,
         rating:4,
-        image:Ipad
+        image:JblHeadPhone
     },
     {
-        id:"4903850",
-        title:"PTron Force X12N 1.85 Full Touch HD Display Bluetooth Calling Smartwatch",
-        price:199.99,
+        id:"4903852",
+        title:"Cracking the Coding Interview (Indian Edition)",
+        price:50.99,
         rating:3,
-        image:FitBitWatch
+        image:CrackingInterview
     },
     {
-        id:"23445930",
-        title:"Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
-        price:98.99,
+        id:"23445932",
+        title:"INLENDISH Duefetty Suede and molfino Grey 3 Seater Sofa Cum Bed",
+        price:108.99,
         rating:5,
-        image:AmazonEchoSpeaker
+        image:Sofa
     },
     {
-        id:"3254354345",
-        title:"New Apple iPad Pro (12.9-inch, Wi-Fi, 128GB) - Silver (4th Generation)",
-        price:598.99,
+        id:"3254354347",
+        title:"Optimum Nutrition (ON) Gold Standard 100% Whey (5 lbs/2.27 kg)(Double Rich Chocolate) Protein Powder Primary Source Isolate,For Men and Women",
+        price:120.99,
         rating:4,
-        image:Ipad
-    }
+        image:ProtienPowder
+    },
+
 ]
 
